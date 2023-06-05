@@ -33,7 +33,7 @@ const handleFulfilledFollowTweet = (state, action) => {
   const userId = action.meta.arg.id;
   const user = state.users.find(user => user.id === userId);
   if (user) {
-    user.followers -= 1;
+    user.followers += 1;
     state.followers = state.followers.filter(id => id !== Number(userId));
   }
 };
