@@ -18,7 +18,6 @@ import {
 } from './UserCard.styled';
 
 export const UserCard = ({ user }) => {
-  console.log(user);
   const dispatch = useDispatch();
   const myFollowers = useSelector(selectFollowers);
   const isFollower = myFollowers.includes(Number(user.id));
