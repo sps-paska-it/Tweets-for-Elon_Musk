@@ -1,8 +1,8 @@
 {
-  "name": "Tweets-for-Elon_Musk",
+  "name": "tweets-for-elon_musk",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sps-paska-it.github.io/Tweets-for-Elon_Musk/",
+  "homepage": "https://sps-paska-it.github.io/tweets-for-elon_musk/",
   "dependencies": {
     "@emotion/styled": "^11.11.0",
     "@reduxjs/toolkit": "^1.9.5",

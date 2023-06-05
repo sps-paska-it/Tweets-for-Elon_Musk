@@ -9,7 +9,7 @@ import { store } from 'redux/store';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/Tweets-for-Elon_Musk">
+      <BrowserRouter basename="/tweets-for-elon_musk">
         <App />
       </BrowserRouter>
     </Provider>

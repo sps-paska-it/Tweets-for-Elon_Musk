@@ -21,6 +21,9 @@ export const UserCard = ({ user }) => {
   const dispatch = useDispatch();
   const myFollowers = useSelector(selectFollowers);
   const isFollower = myFollowers.includes(Number(user.id));
+  console.log(user.id);
+  console.log(myFollowers);
+  console.log(isFollower);
 
   const handleUnFollowTweet = () => {
     dispatch(unFollowTweet(user));
