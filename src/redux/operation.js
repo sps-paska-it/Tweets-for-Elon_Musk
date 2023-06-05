@@ -12,20 +12,30 @@ export const fetchUsers = createAsyncThunk('users/get', async (_, thunkAPI) => {
   }
 });
 
-// export const fetchAddContact = async (contact, thunkAPI) => {
-//   try {
-//     const response = await axios.post('/users', contact);
-//     return response.data;
-//   } catch (e) {
-//     return thunkAPI.rejectWithValue(e.message);
-//   }
-// };
+export const followTweet = createAsyncThunk(
+  'tweets/followTweet',
+  async (tweet, thunkAPI) => {
+    try {
+      const response = await axios.put(`/users/${tweet.id}`, {
+        followers: tweet.followers + 1,
+      });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
 
-// export const fetchDeleteContact = async (id, thunkAPI) => {
-//   try {
-//     const response = await axios.delete(`/users/${id}`);
-//     return response.data;
-//   } catch (e) {
-//     return thunkAPI.rejectWithValue(e.message);
-//   }
-// };
+export const unFollowTweet = createAsyncThunk(
+  'tweets/unFollowTweet',
+  async (tweet, thunkAPI) => {
+    try {
+      const response = await axios.put(`/users/${tweet.id}`, {
+        followers: tweet.followers - 1,
+      });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

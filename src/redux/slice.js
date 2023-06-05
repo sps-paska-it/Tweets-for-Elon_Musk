@@ -1,8 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUsers } from './operation';
+import { fetchUsers, followTweet, unFollowTweet } from './operation';
 
 const handlePending = state => {
   state.isLoading = true;
+};
+
+const handleRejected = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = payload;
 };
 
 const handleFulfilled = (state, { payload }) => {
@@ -11,9 +16,15 @@ const handleFulfilled = (state, { payload }) => {
   state.error = null;
 };
 
-const handleRejected = (state, { payload }) => {
+const handleFulfilledUnFollowTweet = (state, action) => {
   state.isLoading = false;
-  state.error = payload;
+  state.error = null;
+  const tweetId = action.meta.arg.id;
+  const tweet = state.items.find(tweet => tweet.id === tweetId);
+  if (tweet) {
+    tweet.followers -= 1;
+    state.followers = state.followers.filter(id => id !== Number(tweetId));
+  }
 };
 
 const usersSlice = createSlice({
@@ -23,16 +34,17 @@ const usersSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  //   reducers: {
-  //     addBaseCurrency(state, { payload }) {
-  //       state.baseCurrency = payload;
-  //     },
-  //   },
   extraReducers: builder => {
     builder
       .addCase(fetchUsers.pending, handlePending)
+      .addCase(followTweet.pending, handlePending)
+      .addCase(unFollowTweet.pending, handlePending)
+      .addCase(fetchUsers.rejected, handleRejected)
+      .addCase(followTweet.rejected, handleRejected)
+      .addCase(unFollowTweet.rejected, handleRejected)
       .addCase(fetchUsers.fulfilled, handleFulfilled)
-      .addCase(fetchUsers.rejected, handleRejected);
+      .addCase(unFollowTweet.fulfilled, handleFulfilledUnFollowTweet)
+      .addCase(unFollowTweet.fulfilled, handleFulfilledUnFollowTweet);
   },
 });
 
