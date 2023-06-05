@@ -19,11 +19,22 @@ const handleFulfilled = (state, { payload }) => {
 const handleFulfilledUnFollowTweet = (state, action) => {
   state.isLoading = false;
   state.error = null;
-  const tweetId = action.meta.arg.id;
-  const tweet = state.items.find(tweet => tweet.id === tweetId);
-  if (tweet) {
-    tweet.followers -= 1;
-    state.followers = state.followers.filter(id => id !== Number(tweetId));
+  const userId = action.meta.arg.id;
+  const user = state.users.find(user => user.id === userId);
+  if (user) {
+    user.followers -= 1;
+    state.followers = state.followers.filter(id => id !== Number(userId));
+  }
+};
+
+const handleFulfilledFollowTweet = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+  const userId = action.meta.arg.id;
+  const user = state.users.find(user => user.id === userId);
+  if (user) {
+    user.followers -= 1;
+    state.followers = state.followers.filter(id => id !== Number(userId));
   }
 };
 
@@ -31,6 +42,7 @@ const usersSlice = createSlice({
   name: 'users',
   initialState: {
     users: [],
+    followers: [],
     isLoading: false,
     error: null,
   },
@@ -43,10 +55,9 @@ const usersSlice = createSlice({
       .addCase(followTweet.rejected, handleRejected)
       .addCase(unFollowTweet.rejected, handleRejected)
       .addCase(fetchUsers.fulfilled, handleFulfilled)
-      .addCase(unFollowTweet.fulfilled, handleFulfilledUnFollowTweet)
+      .addCase(followTweet.fulfilled, handleFulfilledFollowTweet)
       .addCase(unFollowTweet.fulfilled, handleFulfilledUnFollowTweet);
   },
 });
 
-// export const { addBaseCurrency } = currencySlice.actions;
 export const usersReducer = usersSlice.reducer;
