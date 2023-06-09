@@ -16,24 +16,27 @@ const handleFulfilled = (state, { payload }) => {
   state.error = null;
 };
 
-const handleFulfilledUnFollowTweet = (state, action) => {
+const handleFulfilledFollowTweet = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
-  const userId = action.meta.arg.id;
+  console.log(payload);
+
+  const userId = payload.id;
   const user = state.users.find(user => user.id === userId);
+  console.log(user);
   if (user) {
-    user.followers -= 1;
-    state.followers = state.followers.filter(id => id !== Number(userId));
+    user.followers += 1;
+    state.followers.push(Number(userId));
   }
 };
 
-const handleFulfilledFollowTweet = (state, action) => {
+const handleFulfilledUnFollowTweet = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
-  const userId = action.meta.arg.id;
+  const userId = payload.id;
   const user = state.users.find(user => user.id === userId);
   if (user) {
-    user.followers += 1;
+    user.followers -= 1;
     state.followers = state.followers.filter(id => id !== Number(userId));
   }
 };
