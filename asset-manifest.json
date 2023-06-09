@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/tweets-for-elon_musk/static/css/main.0d928392.css",
-    "main.js": "/tweets-for-elon_musk/static/js/main.ecd1237c.js",
+    "main.js": "/tweets-for-elon_musk/static/js/main.1188b914.js",
     "static/media/family.jpg": "/tweets-for-elon_musk/static/media/family.6e927bdcd2167f3800c2.jpg",
     "static/media/picture2.png": "/tweets-for-elon_musk/static/media/picture2.22c22bab88e820dcfbf7.png",
     "static/media/vector.svg": "/tweets-for-elon_musk/static/media/vector.e917114d7945c04c85a8946a331d28b6.svg",
     "index.html": "/tweets-for-elon_musk/index.html",
     "main.0d928392.css.map": "/tweets-for-elon_musk/static/css/main.0d928392.css.map",
-    "main.ecd1237c.js.map": "/tweets-for-elon_musk/static/js/main.ecd1237c.js.map"
+    "main.1188b914.js.map": "/tweets-for-elon_musk/static/js/main.1188b914.js.map"
   },
   "entrypoints": [
     "static/css/main.0d928392.css",
-    "static/js/main.ecd1237c.js"
+    "static/js/main.1188b914.js"
   ]
 }
