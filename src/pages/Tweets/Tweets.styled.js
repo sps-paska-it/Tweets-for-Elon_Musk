@@ -1,5 +1,19 @@
 import styled from '@emotion/styled';
 
+import backrountTweets from 'images/backrountTweets.jpg';
+
+export const DivStyled = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  background-image: url(${backrountTweets});
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0 0 20px 20px;
+`;
+
 export const UlStyled = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -10,7 +24,7 @@ export const UlStyled = styled.ul`
 export const LiStyled = styled.li``;
 
 export const ButtonStyled = styled.button`
-  margin: 0 auto;
+  margin: 20px auto 0;
   display: block;
   padding: 10px 20px;
   background-color: #f1f1f1;
@@ -22,5 +36,6 @@ export const ButtonStyled = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #ddd;
+    background-color: #6bb7c6;
+  }
 `;

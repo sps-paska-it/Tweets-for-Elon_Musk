@@ -71,7 +71,7 @@ export const ButtonFwg = styled.button`
   width: 196px;
   height: 50px;
 
-  background: #5cd3a8;
+  background: #6bb7c6;
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10.3108px;
 `;
@@ -91,7 +91,7 @@ export const Avatar = styled.div`
   position: absolute;
   margin: 187px 159px 211px;
 
-  border-radius: 50%;
+  /* border-radius: 50%; */
   z-index: 1;
 `;
 

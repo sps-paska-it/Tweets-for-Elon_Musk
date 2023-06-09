@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from 'redux/operation';
 import { selectUsersAllInfo } from 'redux/selectors';
-import { ButtonStyled, LiStyled, UlStyled } from './Tweets.styled';
+import { ButtonStyled, DivStyled, LiStyled, UlStyled } from './Tweets.styled';
 
 const ITEMS_PER_PAGE = 3;
 
@@ -24,28 +24,21 @@ export const Tweets = () => {
   };
 
   return (
-    <>
-      <h2>Tweets</h2>
+    <DivStyled>
       {isLoading && <p>Loading users...</p>}
       {error && <p>{error}</p>}
-      {visibleUsers.length === 0 ? (
-        <p>There are no users yet</p>
-      ) : (
-        <>
-          <UlStyled>
-            {visibleUsers.map(user => (
-              <LiStyled key={user.id}>
-                <UserCard user={user} />
-              </LiStyled>
-            ))}
-          </UlStyled>
-          {visibleUsers.length < users.length && (
-            <ButtonStyled type="button" onClick={onLoadMore}>
-              Load more
-            </ButtonStyled>
-          )}
-        </>
+      <UlStyled>
+        {visibleUsers.map(user => (
+          <LiStyled key={user.id}>
+            <UserCard user={user} />
+          </LiStyled>
+        ))}
+      </UlStyled>
+      {visibleUsers.length < users.length && (
+        <ButtonStyled type="button" onClick={onLoadMore}>
+          Load more
+        </ButtonStyled>
       )}
-    </>
+    </DivStyled>
   );
 };

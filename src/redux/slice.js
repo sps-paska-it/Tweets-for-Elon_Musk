@@ -19,11 +19,9 @@ const handleFulfilled = (state, { payload }) => {
 const handleFulfilledFollowTweet = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
-  console.log(payload);
 
   const userId = payload.id;
   const user = state.users.find(user => user.id === userId);
-  console.log(user);
   if (user) {
     user.followers += 1;
     state.followers.push(Number(userId));

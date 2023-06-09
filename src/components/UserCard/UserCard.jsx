@@ -23,7 +23,6 @@ export const UserCard = ({ user }) => {
   const isFollower = myFollowers.includes(Number(user.id));
 
   const handleUnFollowTweet = () => {
-    console.log('delete usercard');
     dispatch(unFollowTweet(user));
   };
   const handleFollowTweet = () => {

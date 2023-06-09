@@ -16,7 +16,6 @@ export const followTweet = createAsyncThunk(
   'tweets/followTweet',
   async (tweet, thunkAPI) => {
     try {
-      console.log(tweet);
       const response = await axios.put(`/users/${tweet.id}`, {
         followers: tweet.followers + 1,
       });
